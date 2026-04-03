@@ -44,6 +44,7 @@ export const ROUTES = {
     MY: '/modules/my-requests',
     CLINIC: '/modules/clinic-requests',
   },
+  BROADCAST: '/modules/broadcast',
   // Products routes
   PRODUCTS: {
     ROOT: '/products',

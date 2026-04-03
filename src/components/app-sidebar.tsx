@@ -1,4 +1,4 @@
-import { Package, Box, Layers } from 'lucide-react'
+import { Package, Box, Layers, Mail } from 'lucide-react'
 import { NavMain } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'
 import {
@@ -130,6 +130,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               title: t('consultationRequest.clinic.navTitle'),
               url: ROUTES.REQUESTS.CLINIC,
               icon: Box,
+              collapsedOnly: true,
+            },
+            {
+              title: t('broadcast.navTitle'),
+              url: ROUTES.BROADCAST,
+              icon: Mail,
               collapsedOnly: true,
             },
           ]
