@@ -699,7 +699,8 @@
       "cancelReject": "Anuluj",
       "rejectReason": "Powód odrzucenia (opcjonalnie)",
       "rejectReasonPlaceholder": "Podaj powód odrzucenia...",
-      "rejectedReason": "Powód odrzucenia"
+      "rejectedReason": "Powód odrzucenia",
+      "unknownPatient": "Nieznany pacjent"
     }
   },
   "broadcast": {

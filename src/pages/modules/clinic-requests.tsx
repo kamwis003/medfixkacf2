@@ -17,6 +17,7 @@ import { CheckCircle, XCircle, Clock } from 'lucide-react'
 
 function StatusBadge({ status }: { status: TConsultationStatus }) {
   const { t } = useTranslation()
+  const normalized = status?.toLowerCase() as TConsultationStatus
   const variants: Record<TConsultationStatus, 'default' | 'secondary' | 'destructive'> = {
     pending: 'secondary',
     accepted: 'default',
@@ -28,9 +29,9 @@ function StatusBadge({ status }: { status: TConsultationStatus }) {
     rejected: <XCircle className="h-3 w-3" />,
   }
   return (
-    <Badge variant={variants[status]} className="flex items-center gap-1 w-fit">
-      {icons[status]}
-      {t(`consultationRequest.status.${status}`)}
+    <Badge variant={variants[normalized] ?? 'secondary'} className="flex items-center gap-1 w-fit">
+      {icons[normalized]}
+      {t(`consultationRequest.status.${normalized}`)}
     </Badge>
   )
 }
@@ -90,6 +91,8 @@ export const ClinicRequestsPage: React.FC = () => {
       .catch(e => setError(e?.message || t('errors.unknownError')))
       .finally(() => setIsLoading(false))
   }, [t])
+
+  const normalizeStatus = (status: string) => status?.toLowerCase() as TConsultationStatus
 
   const updateStatus = async (
     id: string,
@@ -153,11 +156,13 @@ export const ClinicRequestsPage: React.FC = () => {
                 <div className="flex items-start justify-between gap-2 flex-wrap">
                   <div className="space-y-1">
                     <CardTitle className="text-base">
-                      {req.patient.firstName} {req.patient.lastName}
+                      {req.patient?.firstName || req.patient?.lastName
+                        ? `${req.patient.firstName ?? ''} ${req.patient.lastName ?? ''}`.trim()
+                        : t('consultationRequest.clinic.unknownPatient')}
                     </CardTitle>
-                    <p className="text-sm text-muted-foreground">{req.patient.email}</p>
+                    <p className="text-sm text-muted-foreground">{req.patient?.email ?? '—'}</p>
                   </div>
-                  <StatusBadge status={req.status} />
+                  <StatusBadge status={normalizeStatus(req.status)} />
                 </div>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
@@ -178,7 +183,7 @@ export const ClinicRequestsPage: React.FC = () => {
                   <p className="text-foreground rounded-md bg-muted/50 p-3">{req.description}</p>
                 )}
 
-                {req.status === 'rejected' && req.rejectionReason && (
+                {normalizeStatus(req.status) === 'rejected' && req.rejectionReason && (
                   <Alert variant="destructive">
                     <AlertDescription>
                       {t('consultationRequest.clinic.rejectedReason')}: {req.rejectionReason}
@@ -186,7 +191,7 @@ export const ClinicRequestsPage: React.FC = () => {
                   </Alert>
                 )}
 
-                {req.status === 'pending' && (
+                {normalizeStatus(req.status) === 'pending' && (
                   <>
                     <div className="flex gap-2 mt-2">
                       <Button

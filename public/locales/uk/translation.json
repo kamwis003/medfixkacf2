@@ -521,11 +521,11 @@
       "cancelReject": "Скасувати",
       "rejectReason": "Причина відхилення (необов'язково)",
       "rejectReasonPlaceholder": "Вкажіть причину відхилення...",
-      "rejectedReason": "Причина відхилення"
+      "rejectedReason": "Причина відхилення",
+      "unknownPatient": "Невідомий пацієнт"
     }
   },
   "broadcast": {
-    "title": "Розсилка – Повідомлення пацієнтам",
     "navTitle": "Розсилка e-mail",
     "patients": {
       "title": "Оберіть пацієнтів",
