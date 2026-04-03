@@ -333,8 +333,8 @@
       "errorPatient": "Failed to load patient data.",
       "errorEntries": "Failed to load diary entries.",
       "filter": {
-      "dateRange": "Data range",
-      "clear": "Show all"
+        "dateRange": "Data range",
+        "clear": "Show all"
       },
       "tabs": {
         "visualization": "Visualization",
@@ -592,6 +592,37 @@
     },
     "cancelled": {
       "title": "Payment Cancelled"
+    }
+  },
+  "broadcast": {
+    "title": "Broadcast – Message to Patients",
+    "navTitle": "Broadcast email",
+    "patients": {
+      "title": "Select patients",
+      "description": "Check the patients you want to send an email to.",
+      "selected": "Selected: {{count}}",
+      "selectAll": "Select all",
+      "deselectAll": "Deselect all"
+    },
+    "message": {
+      "title": "Message content",
+      "description": "Enter the subject and body of the email that will be sent to the selected patients.",
+      "subject": "Subject",
+      "subjectPlaceholder": "Enter message subject…",
+      "body": "Body",
+      "bodyPlaceholder": "Enter message body…",
+      "noRecipientsHint": "Select at least one patient from the list on the left.",
+      "send": "Send to {{count}} patient(s)",
+      "sending": "Sending…"
+    },
+    "success": {
+      "title": "Messages sent",
+      "description": "Successfully sent messages to {{count}} patient(s)."
+    },
+    "errors": {
+      "loadPatients": "Failed to load patient list.",
+      "sendTitle": "Send error",
+      "send": "Failed to send messages. Please try again."
     }
   }
 }

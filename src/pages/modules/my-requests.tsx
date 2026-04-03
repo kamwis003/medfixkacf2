@@ -13,12 +13,17 @@ import type {
 
 function StatusBadge({ status }: { status: TConsultationStatus }) {
   const { t } = useTranslation()
+  const normalized = status?.toLowerCase() as TConsultationStatus
   const variants: Record<TConsultationStatus, 'default' | 'secondary' | 'destructive'> = {
     pending: 'secondary',
     accepted: 'default',
     rejected: 'destructive',
   }
-  return <Badge variant={variants[status]}>{t(`consultationRequest.status.${status}`)}</Badge>
+  return (
+    <Badge variant={variants[normalized] ?? 'secondary'}>
+      {t(`consultationRequest.status.${normalized}`)}
+    </Badge>
+  )
 }
 
 export const MyRequestsPage: React.FC = () => {
@@ -66,7 +71,7 @@ export const MyRequestsPage: React.FC = () => {
           </CardContent>
         </Card>
       ) : (
-        <div className="flex flex-col gap-4 max-w-2xl">
+        <div className="flex flex-col gap-4">
           {requests.map(req => (
             <Card key={req.id}>
               <CardHeader className="pb-2">
@@ -83,7 +88,7 @@ export const MyRequestsPage: React.FC = () => {
                   {new Date(req.createdAt).toLocaleDateString(i18n.language)}
                 </p>
                 {req.description && <p className="text-foreground">{req.description}</p>}
-                {req.status === 'rejected' && req.rejectionReason && (
+                {req.status?.toLowerCase() === 'rejected' && req.rejectionReason && (
                   <Alert variant="destructive" className="mt-2">
                     <AlertDescription>
                       {t('consultationRequest.myRequests.rejectedReason')}: {req.rejectionReason}

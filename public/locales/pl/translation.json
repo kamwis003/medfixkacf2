@@ -395,8 +395,8 @@
       "errorPatient": "Nie udało się pobrać danych pacjenta.",
       "errorEntries": "Nie udało się pobrać wpisów dziennika.",
       "filter": {
-      "dateRange": "Zakres danych",
-      "clear": "Pokaż wszystko"
+        "dateRange": "Zakres danych",
+        "clear": "Pokaż wszystko"
       },
       "tabs": {
         "visualization": "Wizualizacja",
@@ -700,6 +700,37 @@
       "rejectReason": "Powód odrzucenia (opcjonalnie)",
       "rejectReasonPlaceholder": "Podaj powód odrzucenia...",
       "rejectedReason": "Powód odrzucenia"
+    }
+  },
+  "broadcast": {
+    "title": "Broadcast – Wiadomość do pacjentów",
+    "navTitle": "Broadcast e-mail",
+    "patients": {
+      "title": "Wybierz pacjentów",
+      "description": "Zaznacz pacjentów, do których chcesz wysłać wiadomość e-mail.",
+      "selected": "Wybrano: {{count}}",
+      "selectAll": "Zaznacz wszystkich",
+      "deselectAll": "Odznacz wszystkich"
+    },
+    "message": {
+      "title": "Treść wiadomości",
+      "description": "Wpisz temat i treść e-maila, który zostanie wysłany do wybranych pacjentów.",
+      "subject": "Temat",
+      "subjectPlaceholder": "Wpisz temat wiadomości…",
+      "body": "Treść",
+      "bodyPlaceholder": "Wpisz treść wiadomości…",
+      "noRecipientsHint": "Wybierz co najmniej jednego pacjenta z listy po lewej stronie.",
+      "send": "Wyślij do {{count}} pacjent(ów)",
+      "sending": "Wysyłanie…"
+    },
+    "success": {
+      "title": "Wiadomości wysłane",
+      "description": "Pomyślnie wysłano wiadomości do {{count}} pacjent(ów)."
+    },
+    "errors": {
+      "loadPatients": "Nie udało się załadować listy pacjentów.",
+      "sendTitle": "Błąd wysyłania",
+      "send": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
     }
   }
 }

@@ -32,6 +32,7 @@ import { PatientsPage } from '@/pages/modules/patients'
 import { PatientDetailPage } from '@/pages/modules/patient-detail'
 import { MyRequestsPage } from '@/pages/modules/my-requests'
 import { ClinicRequestsPage } from '@/pages/modules/clinic-requests'
+import { BroadcastPage } from '@/pages/modules/broadcast'
 
 export const router = createBrowserRouter([
   {
@@ -177,6 +178,10 @@ export const router = createBrowserRouter([
                   {
                     path: 'clinic-requests',
                     element: <ClinicRequestsPage />,
+                  },
+                  {
+                    path: 'broadcast',
+                    element: <BroadcastPage />,
                   },
                 ],
               },
