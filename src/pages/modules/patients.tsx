@@ -118,8 +118,8 @@ export const PatientsPage: React.FC = () => {
                         className="hover:bg-muted cursor-pointer transition-colors"
                         onClick={() => navigate(ROUTES.PATIENTS.DETAIL(p.id))}
                       >
-                        <td className="p-2">{p.firstName}</td>
-                        <td className="p-2">{p.lastName}</td>
+                        <td className="p-2">{p.firstName || <span className="text-muted-foreground">—</span>}</td>
+                        <td className="p-2">{p.lastName || <span className="text-muted-foreground">—</span>}</td>
                         <td className="p-2">
                           {lastEntries[p.id]
                           ? formatDateDMY(lastEntries[p.id])

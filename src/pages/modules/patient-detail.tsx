@@ -195,7 +195,7 @@ export const PatientDetailPage: React.FC = () => {
     : Minus
 
   const patientName = patient
-    ? `${patient.firstName} ${patient.lastName}`
+    ? (`${patient.firstName} ${patient.lastName}`.trim() || t('patients.detail.unknownPatient'))
     : isLoadingPatient
       ? t('patients.loading')
       : t('patients.detail.unknownPatient')
