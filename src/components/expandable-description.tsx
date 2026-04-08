@@ -23,7 +23,7 @@ export const ExpandableDescription = ({
   const isLong = text.length > COLLAPSE_THRESHOLD
 
   if (!isLong) {
-    return <p className={cn('text-foreground', className)}>{text}</p>
+    return <p className={cn('text-foreground [overflow-wrap:anywhere]', className)}>{text}</p>
   }
 
   return (
@@ -32,15 +32,15 @@ export const ExpandableDescription = ({
       aria-expanded={isExpanded}
       aria-label={isExpanded ? 'Zwiń opis' : 'Rozwiń opis'}
       className={cn(
-        'w-full text-left rounded-md cursor-pointer group',
+        'w-full min-w-0 text-left rounded-md cursor-pointer group overflow-hidden',
         className
       )}
       onClick={() => onToggle(id)}
     >
       <p
         className={cn(
-          'text-foreground break-words transition-all duration-200',
-          !isExpanded && 'line-clamp-1'
+          'text-foreground [overflow-wrap:anywhere] transition-all duration-200',
+          !isExpanded && 'line-clamp-2'
         )}
       >
         {text}
