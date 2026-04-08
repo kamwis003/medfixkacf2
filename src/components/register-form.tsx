@@ -90,8 +90,8 @@ export const RegisterForm = ({ className, ...props }: React.ComponentProps<'div'
       password: data.password,
       options: {
         data: {
-          first_name: data.firstName,
-          last_name: data.lastName,
+          firstName: data.firstName,
+          lastName: data.lastName,
         },
       },
     })

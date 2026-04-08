@@ -153,8 +153,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navMainData = getNavMainData()
 
   const navUserData = {
-    firstName: userData?.firstName || user?.user_metadata.first_name || '',
-    lastName: userData?.lastName || user?.user_metadata.last_name || '',
+    firstName: userData?.firstName || user?.user_metadata.firstName || user?.user_metadata.first_name || '',
+    lastName: userData?.lastName || user?.user_metadata.lastName || user?.user_metadata.last_name || '',
     email: userData?.email || user?.email || '',
     avatar: userData?.avatar || user?.user_metadata.avatar_url || '',
   }
