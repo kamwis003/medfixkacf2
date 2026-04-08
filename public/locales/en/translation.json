@@ -624,5 +624,67 @@
       "sendTitle": "Send error",
       "send": "Failed to send messages. Please try again."
     }
+  },
+  "fertility": {
+    "title": "Fertility Tracking",
+    "disclaimer": "The information in this module is for educational purposes only and does not replace medical consultation.",
+    "dashboard": {
+      "title": "Fertility Dashboard",
+      "overview": "Overview",
+      "currentCycle": "Current Cycle",
+      "fertileWindow": "Fertile Window",
+      "nextPeriod": "Next Period"
+    },
+    "calendar": {
+      "title": "Fertility Calendar",
+      "description": "Visualize your menstrual cycle and predict fertile periods.",
+      "day": "Day",
+      "week": "Week",
+      "month": "Month",
+      "period": "Period",
+      "fertile": "Fertile",
+      "ovulation": "Ovulation",
+      "predicted": "Predicted"
+    },
+    "tracking": {
+      "title": "Cycle Tracking",
+      "description": "Record and monitor your menstrual cycle, symptoms and wellbeing.",
+      "addEntry": "Add Entry",
+      "editEntry": "Edit Entry",
+      "deleteEntry": "Delete Entry",
+      "periodStart": "Period Start",
+      "periodEnd": "Period End",
+      "cycleLength": "Cycle Length",
+      "symptoms": "Symptoms",
+      "flowIntensity": "Flow Intensity",
+      "notes": "Notes",
+      "flow": {
+        "light": "Light",
+        "medium": "Medium",
+        "heavy": "Heavy"
+      }
+    },
+    "education": {
+      "title": "Education",
+      "description": "Expand your knowledge on fertility, the menstrual cycle and reproductive health.",
+      "cycleBasics": "Cycle Basics",
+      "fertilityAwareness": "Fertility Awareness",
+      "healthTips": "Health Tips",
+      "commonQuestions": "Common Questions"
+    },
+    "consultation": {
+      "title": "Consultations",
+      "description": "Schedule a consultation with a fertility specialist.",
+      "selectSpecialist": "Select Specialist",
+      "selectDate": "Select Date",
+      "selectTime": "Select Time",
+      "consultationType": "Consultation Type",
+      "online": "Online",
+      "inPerson": "In Person",
+      "message": "Message to Specialist",
+      "bookAppointment": "Book Appointment",
+      "submit": "Book Consultation",
+      "cancel": "Cancel"
+    }
   }
 }
