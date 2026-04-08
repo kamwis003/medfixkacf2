@@ -83,10 +83,10 @@ export const ClinicRequestsPage: React.FC = () => {
   const [error, setError] = React.useState<string | null>(null)
   const [actionLoading, setActionLoading] = React.useState<string | null>(null)
   const [rejectingId, setRejectingId] = React.useState<string | null>(null)
-  const [expandedDescId, setExpandedDescId] = React.useState<string | null>(null)
+  const [expandedId, setExpandedId] = React.useState<string | null>(null)
 
-  const handleDescToggle = (id: string) => {
-    setExpandedDescId(prev => (prev === id ? null : id))
+  const handleToggle = (id: string) => {
+    setExpandedId(prev => (prev === id ? null : id))
   }
 
   React.useEffect(() => {
@@ -184,8 +184,8 @@ export const ClinicRequestsPage: React.FC = () => {
                   <ExpandableDescription
                     text={req.description}
                     id={req.id}
-                    expandedId={expandedDescId}
-                    onToggle={handleDescToggle}
+                    expandedId={expandedId}
+                    onToggle={handleToggle}
                     className="rounded-md bg-muted/50 p-3"
                   />
                 )}
@@ -193,7 +193,14 @@ export const ClinicRequestsPage: React.FC = () => {
                 {req.status === 'rejected' && req.rejectionReason && (
                   <Alert variant="destructive">
                     <AlertDescription>
-                      {t('consultationRequest.clinic.rejectedReason')}: {req.rejectionReason}
+                      <span className="font-medium">{t('consultationRequest.clinic.rejectedReason')}:</span>
+                      <ExpandableDescription
+                        text={req.rejectionReason}
+                        id={`${req.id}-rejection`}
+                        expandedId={expandedId}
+                        onToggle={handleToggle}
+                        className="mt-1"
+                      />
                     </AlertDescription>
                   </Alert>
                 )}
