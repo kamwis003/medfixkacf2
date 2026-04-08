@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { ExpandableDescription } from '@/components/expandable-description'
 import { apiRequest } from '@/utils/api'
 import type {
   IClinicConsultationRequest,
@@ -82,6 +83,11 @@ export const ClinicRequestsPage: React.FC = () => {
   const [error, setError] = React.useState<string | null>(null)
   const [actionLoading, setActionLoading] = React.useState<string | null>(null)
   const [rejectingId, setRejectingId] = React.useState<string | null>(null)
+  const [expandedDescId, setExpandedDescId] = React.useState<string | null>(null)
+
+  const handleDescToggle = (id: string) => {
+    setExpandedDescId(prev => (prev === id ? null : id))
+  }
 
   React.useEffect(() => {
     setIsLoading(true)
@@ -175,7 +181,13 @@ export const ClinicRequestsPage: React.FC = () => {
                 </div>
 
                 {req.description && (
-                  <p className="text-foreground rounded-md bg-muted/50 p-3">{req.description}</p>
+                  <ExpandableDescription
+                    text={req.description}
+                    id={req.id}
+                    expandedId={expandedDescId}
+                    onToggle={handleDescToggle}
+                    className="rounded-md bg-muted/50 p-3"
+                  />
                 )}
 
                 {req.status === 'rejected' && req.rejectionReason && (

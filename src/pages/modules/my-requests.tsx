@@ -4,6 +4,7 @@ import { useDocumentTitle } from '@/hooks/use-document-title'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { ExpandableDescription } from '@/components/expandable-description'
 import { apiRequest } from '@/utils/api'
 import type {
   IConsultationRequest,
@@ -33,6 +34,11 @@ export const MyRequestsPage: React.FC = () => {
   const [requests, setRequests] = React.useState<IConsultationRequest[]>([])
   const [isLoading, setIsLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
+  const [expandedDescId, setExpandedDescId] = React.useState<string | null>(null)
+
+  const handleDescToggle = (id: string) => {
+    setExpandedDescId(prev => (prev === id ? null : id))
+  }
 
   React.useEffect(() => {
     setIsLoading(true)
@@ -87,7 +93,14 @@ export const MyRequestsPage: React.FC = () => {
                   {t('consultationRequest.myRequests.sentAt')}:{' '}
                   {new Date(req.createdAt).toLocaleDateString(i18n.language)}
                 </p>
-                {req.description && <p className="text-foreground">{req.description}</p>}
+                {req.description && (
+                  <ExpandableDescription
+                    text={req.description}
+                    id={req.id}
+                    expandedId={expandedDescId}
+                    onToggle={handleDescToggle}
+                  />
+                )}
                 {req.status?.toLowerCase() === 'rejected' && req.rejectionReason && (
                   <Alert variant="destructive" className="mt-2">
                     <AlertDescription>
