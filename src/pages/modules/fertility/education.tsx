@@ -88,10 +88,6 @@ export const FertilityEducation = () => {
         <p className="text-muted-foreground">{t('fertility.education.description')}</p>
       </div>
 
-      <Alert>
-        <AlertDescription className="text-sm">⚠️ {t('fertility.disclaimer')}</AlertDescription>
-      </Alert>
-
       <Tabs defaultValue="cycle" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="cycle">
