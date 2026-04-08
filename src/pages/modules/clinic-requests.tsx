@@ -14,6 +14,7 @@ import type {
   TConsultationStatus,
 } from '@/types/consultation'
 import { CheckCircle, XCircle, Clock } from 'lucide-react'
+import { formatPatientName } from '@/lib/utils'
 
 function StatusBadge({ status }: { status: TConsultationStatus }) {
   const { t } = useTranslation()
@@ -153,9 +154,7 @@ export const ClinicRequestsPage: React.FC = () => {
                 <div className="flex items-start justify-between gap-2 flex-wrap">
                   <div className="space-y-1">
                     <CardTitle className="text-base">
-                      {(req.patient.firstName || req.patient.lastName)
-                        ? `${req.patient.firstName} ${req.patient.lastName}`.trim()
-                        : t('patients.detail.unknownPatient')}
+                      {formatPatientName(req.patient.firstName, req.patient.lastName, t('patients.detail.unknownPatient'))}
                     </CardTitle>
                     <p className="text-sm text-muted-foreground">{req.patient.email}</p>
                   </div>

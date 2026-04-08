@@ -29,6 +29,7 @@ import type {
   TListPatientDiaryResponse,
 } from '@/types/patients'
 import { useTheme } from '@/hooks/use-theme'
+import { formatPatientName } from '@/lib/utils'
 
 const DATE_FNS_LOCALES: Record<string, Locale> = { pl, en: enUS, uk }
 
@@ -195,7 +196,7 @@ export const PatientDetailPage: React.FC = () => {
     : Minus
 
   const patientName = patient
-    ? (`${patient.firstName} ${patient.lastName}`.trim() || t('patients.detail.unknownPatient'))
+    ? formatPatientName(patient.firstName, patient.lastName, t('patients.detail.unknownPatient'))
     : isLoadingPatient
       ? t('patients.loading')
       : t('patients.detail.unknownPatient')
