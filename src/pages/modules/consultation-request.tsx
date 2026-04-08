@@ -110,10 +110,6 @@ export const ConsultationRequest = () => {
         <p className="text-muted-foreground">{t('fertility.consultation.description')}</p>
       </div>
 
-      <Alert>
-        <AlertDescription className="text-sm">⚠️ {t('fertility.disclaimer')}</AlertDescription>
-      </Alert>
-
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
           <form onSubmit={handleSubmit} className="space-y-6">

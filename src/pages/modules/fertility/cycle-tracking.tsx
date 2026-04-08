@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useDocumentTitle } from '@/hooks/use-document-title'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -84,10 +83,6 @@ export const CycleTracking = () => {
         <h1 className="text-3xl font-bold">{t('fertility.tracking.title')}</h1>
         <p className="text-muted-foreground">{t('fertility.tracking.description')}</p>
       </div>
-
-      <Alert>
-        <AlertDescription className="text-sm">⚠️ {t('fertility.disclaimer')}</AlertDescription>
-      </Alert>
 
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2 space-y-4">
