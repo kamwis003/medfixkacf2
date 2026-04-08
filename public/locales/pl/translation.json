@@ -342,7 +342,8 @@
         "light": "Lekkie",
         "medium": "Średnie",
         "heavy": "Obfite"
-      }
+      },
+      "description": "Rejestruj i monitoruj swój cykl miesiączkowy, objawy i samopoczucie."
     },
     "calendar": {
       "title": "Kalendarz Płodności",
@@ -352,14 +353,16 @@
       "period": "Okres",
       "ovulation": "Owulacja",
       "fertile": "Płodny",
-      "predicted": "Przewidywany"
+      "predicted": "Przewidywany",
+      "description": "Wizualizuj swój cykl miesiączkowy i przewiduj okresy płodne."
     },
     "education": {
       "title": "Edukacja",
       "cycleBasics": "Podstawy cyklu",
       "fertilityAwareness": "Świadomość płodności",
       "healthTips": "Wskazówki zdrowotne",
-      "commonQuestions": "Najczęstsze pytania"
+      "commonQuestions": "Najczęstsze pytania",
+      "description": "Poszerz wiedzę na temat płodności, cyklu miesiączkowego i zdrowia reprodukcyjnego."
     },
     "consultation": {
       "title": "Konsultacje",
@@ -372,8 +375,10 @@
       "inPerson": "Stacjonarna",
       "message": "Wiadomość do specjalisty",
       "submit": "Zarezerwuj konsultację",
-      "cancel": "Anuluj"
-    }
+      "cancel": "Anuluj",
+      "description": "Umów konsultację ze specjalistą ds. płodności."
+    },
+    "disclaimer": "Informacje zawarte w tym module mają charakter edukacyjny i nie zastępują konsultacji lekarskiej."
   },
   "patients": {
     "title": "Pacjenci",
