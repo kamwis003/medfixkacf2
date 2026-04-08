@@ -79,7 +79,7 @@ export const MyRequestsPage: React.FC = () => {
       ) : (
         <div className="flex flex-col gap-4">
           {requests.map(req => (
-            <Card key={req.id}>
+            <Card key={req.id} className="min-w-0 overflow-hidden">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <CardTitle className="text-base">
