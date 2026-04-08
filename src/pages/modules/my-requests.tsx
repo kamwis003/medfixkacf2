@@ -34,10 +34,10 @@ export const MyRequestsPage: React.FC = () => {
   const [requests, setRequests] = React.useState<IConsultationRequest[]>([])
   const [isLoading, setIsLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
-  const [expandedDescId, setExpandedDescId] = React.useState<string | null>(null)
+  const [expandedId, setExpandedId] = React.useState<string | null>(null)
 
-  const handleDescToggle = (id: string) => {
-    setExpandedDescId(prev => (prev === id ? null : id))
+  const handleToggle = (id: string) => {
+    setExpandedId(prev => (prev === id ? null : id))
   }
 
   React.useEffect(() => {
@@ -97,14 +97,21 @@ export const MyRequestsPage: React.FC = () => {
                   <ExpandableDescription
                     text={req.description}
                     id={req.id}
-                    expandedId={expandedDescId}
-                    onToggle={handleDescToggle}
+                    expandedId={expandedId}
+                    onToggle={handleToggle}
                   />
                 )}
                 {req.status?.toLowerCase() === 'rejected' && req.rejectionReason && (
                   <Alert variant="destructive" className="mt-2">
                     <AlertDescription>
-                      {t('consultationRequest.myRequests.rejectedReason')}: {req.rejectionReason}
+                      <span className="font-medium">{t('consultationRequest.myRequests.rejectedReason')}:</span>
+                      <ExpandableDescription
+                        text={req.rejectionReason}
+                        id={`${req.id}-rejection`}
+                        expandedId={expandedId}
+                        onToggle={handleToggle}
+                        className="mt-1"
+                      />
                     </AlertDescription>
                   </Alert>
                 )}
